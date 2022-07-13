@@ -4,6 +4,34 @@
       <label
         for="exampleFormControlInput1"
         class="form-label inline-block mb-2 text-gray-700"
+        >Name</label
+      >
+      <input
+        type="text"
+        v-model="state.fullName"
+        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+        id="exampleFormControlInput1"
+        placeholder="Enter your name"
+      />
+    </div>
+    <div class="mb-3 w-80">
+      <label
+        for="exampleFormControlInput1"
+        class="form-label inline-block mb-2 text-gray-700"
+        >Email</label
+      >
+      <input
+        type="email"
+        v-model="state.email"
+        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+        id="exampleFormControlInput1"
+        placeholder="Enter your email"
+      />
+    </div>
+    <div class="mb-3 w-80">
+      <label
+        for="exampleFormControlInput1"
+        class="form-label inline-block mb-2 text-gray-700"
         >Title</label
       >
       <input
@@ -20,7 +48,7 @@
         class="form-label inline-block mb-2 text-gray-700"
         >Description</label
       >
-      <input
+      <textarea
         type="text"
         v-model="state.description"
         class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -55,6 +83,8 @@ export default {
     const state = reactive({
       title: "",
       description: "",
+      fullName:'',
+      email:''
     });
     const closeModal = () => {
       context.emit("closeModal");
@@ -65,6 +95,7 @@ export default {
       store.dispatch('getAllIssues');
       state.title = '';
       state.description = '';
+      state.fullName='';
     };
     return {
       state,

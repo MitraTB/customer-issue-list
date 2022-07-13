@@ -7,7 +7,7 @@
         <div class="max-w-2xl p-6 mx-4 bg-white rounded-md shadow-xl">
           <div class="flex items-center justify-between">
             <h3 class="text-2xl text-red-600">Alert</h3>
-            <IconClose @closeModal="closeModal" />
+            <IconClose @closeModal="closeAlert" />
           </div>
           <div class="my-4">Are you sure you want to delete?</div>
           <button
