@@ -11,6 +11,7 @@
           <p class="ml-2">{{ issue.title }}</p>
         </div>
         <div class="flex">
+          <CheckBox class="mr-4" :value="issue.solved" @markIssue="markIssue" />
           <IconPencil class="mr-5 cursor-pointer" @click="isOpen = true" />
           <IconDelete class="cursor-pointer" @click="openAlert = true" />
         </div>
@@ -53,6 +54,7 @@ import FormModal from "./FormModal.vue";
 import AlertModal from "./AlertModal.vue";
 import SuccessToast from "./SuccessToast.vue";
 import CustomeLabel from "./Ui/CustomeLabel.vue";
+import CheckBox from "./Ui/CheckBox.vue";
 
 export default {
   props: {
@@ -67,11 +69,17 @@ export default {
       store.dispatch("deleteIssue", props.issue.id);
       state.successDelete = true;
     };
+    const markIssue = () => {
+      const newData = { ...props.issue };
+      newData.solved = !newData.solved;
+      store.dispatch("editIssue", newData);
+    };
     return {
       deleteIssue,
       isOpen,
       openAlert,
       state,
+      markIssue,
     };
   },
   components: {
@@ -81,6 +89,7 @@ export default {
     AlertModal,
     SuccessToast,
     CustomeLabel,
+    CheckBox,
   },
 };
 </script>

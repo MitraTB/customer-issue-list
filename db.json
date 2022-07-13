@@ -5,28 +5,32 @@
       "title": "my watch wristlet is broken",
       "description": "adsadsaddasdsa",
       "fullName": "mitra tb ",
-      "email": "mitra@gmail.com"
+      "email": "mitra@gmail.com",
+      "solved": false
     },
     {
       "id": 6,
       "title": "store locations",
       "description": "I can not find your store in norway can you please help me?",
       "fullName": "ali tabatabaei",
-      "email": "ali@gmail.com"
+      "email": "ali@gmail.com",
+      "solved": true
     },
     {
       "id": 7,
       "title": "my wallet",
       "description": "my credit card is expired how can I pay?",
       "fullName": "Radinnnn",
-      "email": "Radin@gmail.com"
+      "email": "Radin@gmail.com",
+      "solved": false
     },
     {
       "id": 8,
       "title": "sflksdijf",
       "description": "sfsdfishh ifasoifofi",
       "fullName": "test",
-      "email": "adksdas@jsbfjsd.com"
+      "email": "adksdas@jsbfjsd.com",
+      "solved": true
     }
   ]
 }
