@@ -10,12 +10,10 @@ const mutations = {
     state.issues = payload;
   },
   ADD_ISSUE: (state, payload) => {
-    console.log(payload);
     [...state.issues, payload];
   },
   DELETE_ISSUE: (state, payload) => {
     state.issues = state.issues.filter((issue) => issue.id != payload);
-    console.log("888", state.issues);
   },
   EDIT_ISSUE: (state, payload) => {
     state.issues = state.issues.map((issue) => {
@@ -31,7 +29,6 @@ const actions = {
     try {
       const result = await axios.get(issueList);
       commit("SET_ISSUE", result.data);
-      console.log("res", result.data);
     } catch (error) {
       throw new Error(error);
     }
