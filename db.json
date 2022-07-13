@@ -3,33 +3,30 @@
     {
       "id": 3,
       "title": "my watch wristlet is broken",
-      "description": "adsadsaddasdsa",
+      "description": "I have some issue",
       "fullName": "mitra tb ",
-      "email": "mitra@gmail.com",
-      "solved": false
+      "email": "mitra@gmail.com"
     },
     {
       "id": 6,
       "title": "store locations",
       "description": "I can not find your store in norway can you please help me?",
-      "fullName": "ali tabatabaei",
-      "email": "ali@gmail.com",
-      "solved": true
+      "fullName": "Mike James",
+      "email": "mike@gmail.com"
     },
     {
       "id": 7,
       "title": "my wallet",
       "description": "my credit card is expired how can I pay?",
-      "fullName": "Radinnnn",
-      "email": "Radin@gmail.com",
-      "solved": false
+      "fullName": "Harold washington",
+      "email": "harold@gmail.com"
     },
     {
       "id": 8,
-      "title": "sflksdijf",
-      "description": "sfsdfishh ifasoifofi",
-      "fullName": "test",
-      "email": "adksdas@jsbfjsd.com",
+      "title": "Test",
+      "description": "this is just a test",
+      "fullName": "Jim kardian",
+      "email": "kardian@yahoo.com",
       "solved": true
     }
   ]
