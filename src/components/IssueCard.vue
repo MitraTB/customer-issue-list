@@ -4,29 +4,44 @@
       <div
         class="rounded-t-lg w-full bg-red-300 h-12 flex justify-between px-4 items-center shadow-lg"
       >
-        {{ state.title }}
+        {{ issue.title }}
       </div>
       <div class="my-2 p-2 flex justify-between">
-        <div>{{ state.description }}</div>
-        <div class="flex"><IconPencil class="mr-5" /><IconDelete /></div>
+        <div>{{ issue.description }}</div>
+        <div class="flex">
+          <IconPencil class="mr-5" @click="isOpen = true" /><IconDelete
+            @click="deleteIssue(issue.id)"
+          />
+        </div>
       </div>
     </div>
   </div>
+  <AddIssue
+    v-show="isOpen"
+    :data="{ title: issue.title, description: issue.description }"
+  />
 </template>
 <script>
-import { reactive } from "vue";
 import IconPencil from "./icons/IconPencil.vue";
 import IconDelete from "./icons/IconDelete.vue";
+import store from "../store";
+import AddIssue from "./AddIssue.vue";
+import { ref } from "vue";
 export default {
+  props: {
+    issue: Object,
+  },
   setup() {
-    const state = reactive({
-      title: "hello",
-      description: "dkdhadkaj iqeqwe eiqwoeque qioeqoueq o o    oeyoe   q ieu   iue eq puqiurqw i oiqeoqye qw oiequ qwoiuqewq oiuoiqwue ioeuq eq eqeyqequie haqwrqwrwqhrq  qyqwyieyqieuywq ieeqoeuq hueqqiewqye uyqyequ eqeuiyuwqyewq equiyqueq ewqiuyqe wqewqiywqeywq ewqiuyqweu wqewqyiuwyewq ewquqye qeyqwe dayduyiyas uiqyweyiu qeuyeq weqy eyqiuwqy iuyqw eqwuieyqiu uiyequewq  uiqweyqywq dadak udayeq  uwqyqeeywq uqwyrwury uqywiqry wq uqyrwqurqrqy uyrruqyiqwy uryquiryqwwqiu irqiurywqiyr ",
-    });
+    const isOpen = ref(false);
+    // const editIssue = (el) => store.dispatch("editIssue", el);
+    const deleteIssue = (id) => {
+      store.dispatch("deleteIssue", id);
+    };
     return {
-      state,
+      deleteIssue,
+      isOpen,
     };
   },
-  components: { IconPencil, IconDelete },
+  components: { IconPencil, IconDelete, AddIssue },
 };
 </script>
