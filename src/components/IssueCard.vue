@@ -1,10 +1,10 @@
 <template>
   <div class="mt-5">
     <div
-      class="rounded w-full pb-4 min-h-48 bg-slate-50 shadow-lg border-2 border-red-100"
+      class="rounded w-full pb-4 min-h-48 bg-slate-50 shadow-lg border-2 border-slate-300"
     >
       <div
-        class="w-full h-12 flex justify-between px-4 items-center border-b border-red-100"
+        class="w-full h-12 flex justify-between px-4 items-center border-b border-slate-200"
       >
         <div class="flex items-center">
           <CustomeLabel>title: </CustomeLabel>
@@ -34,8 +34,9 @@
   <FormModal
     v-if="isOpen"
     @cancleModal="isOpen = false"
-    :name="'Edit Isuue'"
+    action="edit"
     :data="{ title: issue.title, description: issue.description }"
+    :id="issue.id"
   />
   <AlertModal
     v-if="openAlert"

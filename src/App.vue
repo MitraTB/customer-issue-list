@@ -12,7 +12,7 @@
   <FormModal
     v-show="isOpen"
     @cancleModal="isOpen = false"
-    :name="'Add New Issue'"
+    action="add"
   />
   <div v-show="isOpen">hello</div>
 </template>

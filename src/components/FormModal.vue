@@ -6,11 +6,16 @@
       >
         <div class="max-w-2xl p-6 mx-4 bg-white rounded-md shadow-xl">
           <div class="flex items-center justify-between">
-            <h3 class="text-2xl">{{name}}</h3>
+            <h3 class="text-2xl">{{ name }}</h3>
             <IconClose @closeModal="closeModal" />
           </div>
           <div class="mt-4">
-            <IssueForm @close-modal="closeModal" :data="data"/>
+            <IssueForm
+              @close-modal="closeModal"
+              :data="data"
+              :action="action"
+              :id="id"
+            />
           </div>
         </div>
       </div>
@@ -18,20 +23,25 @@
   </div>
 </template>
 <script>
-import { reactive } from "vue";
+import { reactive, computed } from "vue";
 import IssueForm from "./IssueForm.vue";
 import store from "../store";
 import IconClose from "./icons/IconClose.vue";
 export default {
   emits: ["cancleModal"],
-   props: {
+  props: {
     data: Object,
-    name:String,
+    action: String,
+    id:Number,
   },
   setup(props, context) {
     const state = reactive({
       title: "",
       description: "",
+    });
+    const name = computed(() => {
+      if (props.action === "edit") return "Edit Issue";
+      return "Add new isuue";
     });
     function closeModal() {
       context.emit("cancleModal");
@@ -39,7 +49,7 @@ export default {
     const addIssue = () => {
       store.dispatch("addIssue", state);
     };
-    return { addIssue, state, closeModal };
+    return { addIssue, state, closeModal, name };
   },
   components: { IssueForm, IconClose },
 };
