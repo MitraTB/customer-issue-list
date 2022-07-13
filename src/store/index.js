@@ -51,6 +51,7 @@ const actions = {
   },
   editIssue: async ({ commit }, payload) => {
     try {
+      await axios.put(`${issueList}/${payload.id}`, payload);
       commit("EDIT_ISSUE", payload);
     } catch (error) {
       throw new Error(error);

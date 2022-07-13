@@ -70,15 +70,15 @@
     </button>
     <input
       type="submit"
-      class="px-6 py-2 ml-2 text-blue-100 bg-red-600 rounded"
+      class="px-6 py-2 ml-2 text-blue-100 bg-red-600 rounded cursor-pointer"
     />
   </form>
 </template>
 <script>
-// import axios from "axios";
+import axios from "axios";
 import { reactive } from "vue";
 import { useStore } from "vuex";
-// import { getspecialIsuue } from "../Api/endpoints";
+import { getspecialIsuue } from "../Api/endpoints";
 
 export default {
   emits: ["closeModal"],
@@ -89,6 +89,7 @@ export default {
   setup(props, context) {
     const store = useStore();
     const state = reactive({
+      id: "",
       title: "",
       description: "",
       fullName: "",
@@ -103,8 +104,10 @@ export default {
       }
       editIssue();
     };
-    const editIssue = async () => {
-      console.log("ssss");
+    const editIssue = () => {
+      store.dispatch("editIssue", state);
+      store.dispatch("getAllIssues");
+      context.emit("closeModal");
     };
     const addIssue = () => {
       store.dispatch("addIssue", state);
@@ -116,15 +119,27 @@ export default {
       state.title = "";
       state.description = "";
       state.fullName = "";
-      state.email = ""
+      state.email = "";
+    };
+    async function getSelectedIsuueData() {
+      if (props.action === "edit") {
+        const res = await axios.get(getspecialIsuue(props.id));
+        state.title = res.data.title;
+        state.description = res.data.description;
+        state.email = res.data.email;
+        state.fullName = res.data.fullName;
+        state.id = res.data.id;
+      }
     }
+    getSelectedIsuueData();
     return {
       state,
       addIssue,
       closeModal,
       chooseAction,
       editIssue,
-      emptyForm
+      emptyForm,
+      getSelectedIsuueData,
     };
   },
 };
