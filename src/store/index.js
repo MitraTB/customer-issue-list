@@ -18,8 +18,9 @@ const mutations = {
   EDIT_ISSUE: (state, payload) => {
     state.issues = state.issues.map((issue) => {
       if (issue.id === payload.id) {
-        issue = payload;
+        return payload;
       }
+      return issue;
     });
   },
 };
