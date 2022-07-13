@@ -35,7 +35,6 @@
     v-if="isOpen"
     @cancleModal="isOpen = false"
     action="edit"
-    :data="{ title: issue.title, description: issue.description }"
     :id="issue.id"
   />
   <AlertModal
@@ -46,28 +45,27 @@
   <SuccessToast v-if="state.successDelete" />
 </template>
 <script>
+import { ref, reactive } from "vue";
+import { useStore } from "vuex";
 import IconPencil from "./icons/IconPencil.vue";
 import IconDelete from "./icons/IconDelete.vue";
-import store from "../store";
 import FormModal from "./FormModal.vue";
 import AlertModal from "./AlertModal.vue";
 import SuccessToast from "./SuccessToast.vue";
 import CustomeLabel from "./Ui/CustomeLabel.vue";
-import { ref, reactive } from "vue";
+
 export default {
   props: {
     issue: Object,
   },
   setup(props) {
+    const store = useStore();
     const isOpen = ref(false);
     const openAlert = ref(false);
     const state = reactive({ successDelete: false });
-    // const editIssue = (el) => store.dispatch("editIssue", el);
     const deleteIssue = () => {
-      console.log("kdadakjgdkagkjdgagdak");
       store.dispatch("deleteIssue", props.issue.id);
       state.successDelete = true;
-      console.log("after", state.successDelete);
     };
     return {
       deleteIssue,

@@ -7,14 +7,9 @@
     >
       Add New Issue
     </button>
-    <IssueList class="mx-2"/>
+    <IssueList class="mx-2" />
   </div>
-  <FormModal
-    v-show="isOpen"
-    @cancleModal="isOpen = false"
-    action="add"
-  />
-  <div v-show="isOpen">hello</div>
+  <FormModal v-show="isOpen" @cancleModal="isOpen = false" action="add" />
 </template>
 <script>
 import { ref } from "vue";

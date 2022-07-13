@@ -75,19 +75,19 @@
   </form>
 </template>
 <script>
-import axios from "axios";
+// import axios from "axios";
 import { reactive } from "vue";
-import store from "../store";
-import { getspecialIsuue } from "../Api/endpoints";
+import { useStore } from "vuex";
+// import { getspecialIsuue } from "../Api/endpoints";
 
 export default {
   emits: ["closeModal"],
   props: {
-    data: Object,
     action: String,
     id: Number,
   },
   setup(props, context) {
+    const store = useStore();
     const state = reactive({
       title: "",
       description: "",

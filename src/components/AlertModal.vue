@@ -31,10 +31,6 @@
 import IconClose from "./icons/IconClose.vue";
 export default {
   emits: ["closeAlert", "confirmDelete"],
-  props: {
-    data: Object,
-    name: String,
-  },
   setup(props, context) {
     function closeAlert() {
       context.emit("closeAlert");
