@@ -2,7 +2,7 @@
   <div class="container mx-auto">
     <div class="flex justify-center">
       <div
-        class="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50"
+        class="fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50"
       >
         <div class="max-w-2xl p-6 mx-4 bg-white rounded-md shadow-xl">
           <div class="flex items-center justify-between">
