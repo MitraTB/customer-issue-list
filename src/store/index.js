@@ -35,16 +35,17 @@ const actions = {
     }
   },
   addIssue: async ({ commit }, payload) => {
-    await api.post(issueList, payload);
     try {
+      await api.post(issueList, payload);
       commit("ADD_ISSUE", payload);
+      alert("Congradulation! done successfully");
     } catch (error) {
       throw new Error(error);
     }
   },
   deleteIssue: async ({ commit }, payload) => {
-    await api.delete(`${issueList}/${payload}`);
     try {
+      await api.delete(`${issueList}/${payload}`);
       commit("DELETE_ISSUE", payload);
     } catch (error) {
       throw new Error(error);
@@ -54,6 +55,7 @@ const actions = {
     try {
       await api.put(`${issueList}/${payload.id}`, payload);
       commit("EDIT_ISSUE", payload);
+      alert("Congradulation! done successfully");
     } catch (error) {
       throw new Error(error);
     }

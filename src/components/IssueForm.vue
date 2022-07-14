@@ -123,12 +123,16 @@ export default {
     };
     async function getSelectedIsuueData() {
       if (props.action === "edit") {
-        const res = await api.get(getspecialIsuue(props.id));
-        state.title = res.data.title;
-        state.description = res.data.description;
-        state.email = res.data.email;
-        state.fullName = res.data.fullName;
-        state.id = res.data.id;
+        try {
+          const res = await api.get(getspecialIsuue(props.id));
+          state.title = res.data.title;
+          state.description = res.data.description;
+          state.email = res.data.email;
+          state.fullName = res.data.fullName;
+          state.id = res.data.id;
+        } catch (err) {
+          throw new err();
+        }
       }
     }
     getSelectedIsuueData();

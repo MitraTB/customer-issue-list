@@ -24,11 +24,10 @@
     },
     {
       "id": 8,
-      "title": "Test",
+      "title": "Test ",
       "description": "this is just a test",
       "fullName": "Jim kardian",
-      "email": "kardian@yahoo.com",
-      "solved": true
+      "email": "kardian@yahoo.com"
     }
   ]
 }
