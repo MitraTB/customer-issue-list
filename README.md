@@ -1,14 +1,15 @@
 # customer-issue-list
 
-This template should help get you started developing with Vue 3 in Vite.
+This is project using vue3 and setup is based on Vitejs. I have used json-server to get fake rest api.
+for getting data it is important to run 
+```sh
+json-server --watch db.json
+```
+and then start project by running 
+```sh
+npm run dev
+```
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
