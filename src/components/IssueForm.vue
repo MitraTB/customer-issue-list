@@ -75,7 +75,7 @@
   </form>
 </template>
 <script>
-import axios from "axios";
+import api from "../utils/api_instance";
 import { reactive } from "vue";
 import { useStore } from "vuex";
 import { getspecialIsuue } from "../Api/endpoints";
@@ -123,7 +123,7 @@ export default {
     };
     async function getSelectedIsuueData() {
       if (props.action === "edit") {
-        const res = await axios.get(getspecialIsuue(props.id));
+        const res = await api.get(getspecialIsuue(props.id));
         state.title = res.data.title;
         state.description = res.data.description;
         state.email = res.data.email;

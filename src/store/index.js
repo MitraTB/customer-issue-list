@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import axios from "axios";
+import api from "../utils/api_instance";
 import { issueList } from "../Api/endpoints";
 const state = {
   issues: [],
@@ -28,14 +28,14 @@ const mutations = {
 const actions = {
   getAllIssues: async ({ commit }) => {
     try {
-      const result = await axios.get(issueList);
+      const result = await api.get(issueList);
       commit("SET_ISSUE", result.data);
     } catch (error) {
       throw new Error(error);
     }
   },
   addIssue: async ({ commit }, payload) => {
-    await axios.post(issueList, payload);
+    await api.post(issueList, payload);
     try {
       commit("ADD_ISSUE", payload);
     } catch (error) {
@@ -43,7 +43,7 @@ const actions = {
     }
   },
   deleteIssue: async ({ commit }, payload) => {
-    await axios.delete(`${issueList}/${payload}`);
+    await api.delete(`${issueList}/${payload}`);
     try {
       commit("DELETE_ISSUE", payload);
     } catch (error) {
@@ -52,7 +52,7 @@ const actions = {
   },
   editIssue: async ({ commit }, payload) => {
     try {
-      await axios.put(`${issueList}/${payload.id}`, payload);
+      await api.put(`${issueList}/${payload.id}`, payload);
       commit("EDIT_ISSUE", payload);
     } catch (error) {
       throw new Error(error);

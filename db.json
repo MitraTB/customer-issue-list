@@ -5,7 +5,8 @@
       "title": "my watch wristlet is broken",
       "description": "I have some issue",
       "fullName": "mitra tb ",
-      "email": "mitra@gmail.com"
+      "email": "mitra@gmail.com",
+      "solved": true
     },
     {
       "id": 6,

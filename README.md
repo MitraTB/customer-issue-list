@@ -33,3 +33,8 @@ npm run build
 ```sh
 npm run lint
 ```
+### Json-server 
+
+```sh
+json-server --watch db.json
+```
